@@ -142,7 +142,7 @@ Returns:
 
 ### 1️⃣ Clone Repository
 
-git clone https://github.com/YOUR_USERNAME/college-erp-system.git
+git clone https://github.com/saniakhan20/college-erp-system.git
 
 ### 2️⃣ Create Virtual Environment
 
