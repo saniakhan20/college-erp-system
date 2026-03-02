@@ -47,3 +47,18 @@ class MyApplicationsView(generics.ListAPIView):
 
         # Faculty → no access
         return Application.objects.none()
+
+class CompanyListView(generics.ListAPIView):
+    queryset = Company.objects.all()
+    serializer_class = CompanySerializer
+    permission_classes = [IsAuthenticated]
+
+class JobPostingListView(generics.ListAPIView):
+    queryset = JobPosting.objects.all()
+    serializer_class = JobPostingSerializer
+    permission_classes = [IsAuthenticated]
+
+class JobPostingDetailView(generics.RetrieveAPIView):
+    queryset = JobPosting.objects.all()
+    serializer_class = JobPostingSerializer
+    permission_classes = [IsAuthenticated]
