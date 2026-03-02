@@ -13,8 +13,8 @@ class JobPostingSerializer(serializers.ModelSerializer):
         model = JobPosting
         fields = '__all__'
 
-
 class ApplicationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Application
-        fields = '__all__'
+        fields = ['id', 'job', 'application_date', 'status']
+        read_only_fields = ['application_date']
