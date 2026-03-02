@@ -29,3 +29,21 @@ class ApplicationCreateView(generics.CreateAPIView):
             raise ValidationError("You have already applied for this job.")
 
         serializer.save(student=student)
+
+class MyApplicationsView(generics.ListAPIView):
+    serializer_class = ApplicationSerializer
+    permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        user = self.request.user
+
+        # If admin → see all applications
+        if user.role == "ADMIN":
+            return Application.objects.all()
+
+        # If student → see only their applications
+        if user.role == "STUDENT":
+            return Application.objects.filter(student=user.student)
+
+        # Faculty → no access
+        return Application.objects.none()
