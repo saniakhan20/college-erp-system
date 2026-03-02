@@ -24,6 +24,7 @@ urlpatterns = [
     path('api/students/', include('students.urls')),
     path('api/login/', obtain_auth_token),
     path('api/placement/', include('placement.urls')),
+    path('api/faculty/', include('faculty.urls')),
 ]
 
 
