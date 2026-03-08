@@ -1,4 +1,5 @@
 from django.contrib import admin
-from .models import Fee
+from .models import FeeStructure, Payment
 
-admin.site.register(Fee)
+admin.site.register(FeeStructure)
+admin.site.register(Payment)
